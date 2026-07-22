@@ -1,0 +1,20 @@
+# Python
+.venv/
+.venv-1/
+backend/venv/
+backend/.venv/
+__pycache__/
+backend/__pycache__/
+*.pyc
+backend/.env
+
+# Dataset
+backend/dataset/
+
+# React
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# VS Code
+.vscode/
