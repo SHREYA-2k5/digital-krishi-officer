@@ -322,10 +322,7 @@ function App() {
       const response =
         await axios.post(
 
-          "http://127.0.0.1:5000/predict",
-
-          formData
-        );
+          "/predict",
 
       setResult(response.data);
 
@@ -675,7 +672,7 @@ localStorage.setItem(
   try {
 
     const response = await axios.get(
-      "http://127.0.0.1:5000/history"
+      "/history"
     );
 
     setHistory(
@@ -698,7 +695,7 @@ const fetchDashboard = async () => {
   try {
 
     const response = await axios.get(
-      "http://127.0.0.1:5000/dashboard"
+      "/dashboard"
     );
 
     setDashboard(

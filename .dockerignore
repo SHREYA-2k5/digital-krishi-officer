@@ -1,0 +1,26 @@
+# Node and Python artifacts
+node_modules
+frontend/node_modules
+frontend/build
+.venv
+.venv-1
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Git and deployment files
+.git
+.gitignore
+
+# Local environment files
+.env
+backend/.env
+
+# Dataset and temporary files
+backend/dataset
+
+# Logs and IDE files
+*.log
+.vscode
+.DS_Store

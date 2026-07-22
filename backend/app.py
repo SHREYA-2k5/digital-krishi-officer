@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from tensorflow.keras.models import load_model
 from PIL import Image
@@ -9,7 +9,8 @@ from datetime import datetime
 import os
 import google.generativeai as genai
 from dotenv import load_dotenv
-app = Flask(__name__)
+
+app = Flask(__name__, static_folder="frontend/build", static_url_path="")
 CORS(app)
 load_dotenv()
 
@@ -218,5 +219,12 @@ Question:
             "error": str(e)
         }), 500
 
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_frontend(path):
+    if path != '' and os.path.exists(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
+    return send_from_directory(app.static_folder, 'index.html')
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
