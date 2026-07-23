@@ -1,7 +1,6 @@
 # Node and Python artifacts
 node_modules
 frontend/node_modules
-frontend/build
 .venv
 .venv-1
 __pycache__

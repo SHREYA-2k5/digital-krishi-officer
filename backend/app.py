@@ -3,7 +3,7 @@ from flask_cors import CORS
 from tensorflow.keras.models import load_model
 from PIL import Image
 import numpy as np
-from db import predictions
+from db import save_prediction, get_history
 from datetime import datetime
 
 import os
@@ -93,7 +93,7 @@ def predict():
       "date": datetime.utcnow().isoformat() + "Z"
     }
 
-    predictions.insert_one(prediction_data)
+    save_prediction(prediction_data)
 
     return jsonify({
       "disease": predicted_class,
@@ -106,17 +106,13 @@ def predict():
 @app.route("/history", methods=["GET"])
 def history():
 
-    data = list(
-        predictions.find({}, {"_id": 0})
-    )
+    data = get_history()
 
     return jsonify(data)
 @app.route("/dashboard", methods=["GET"])
 def dashboard():
 
-    data = list(
-        predictions.find({}, {"_id": 0})
-    )
+    data = get_history()
 
     total_predictions = len(data)
 
