@@ -1,6 +1,6 @@
 export async function askKrishiOfficer(question) {
 
-    const response = await fetch("/ask-ai", {
+     const response = await fetch("https://digital-krishi-officer-2.onrender.com/ask-ai", {
 
         method: "POST",
 
