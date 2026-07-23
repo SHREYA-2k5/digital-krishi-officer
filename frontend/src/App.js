@@ -169,7 +169,7 @@ function App() {
     return new Promise((resolve) => {
 
       if (navigator.geolocation) {
-
+     
         navigator.geolocation.getCurrentPosition(
 
           (position) => {
@@ -325,43 +325,36 @@ function App() {
           formData
         );
 
-          response.data.solution,
+      const translatedDisease =
+        await translateText(
+          response.data.disease,
+          language
+        );
 
+      const translatedSolution =
+        await translateText(
+          response.data.solution,
           language
         );
 
       const translatedPriority =
         await translateText(
-
           response.data.priority,
-
           language
         );
 
       const translatedWeather =
         await translateText(
-
           weatherAlert,
-
           language
         );
 
       setTranslatedResult({
-
-        disease:
-          translatedDisease,
-
-        solution:
-          translatedSolution,
-
-        priority:
-          translatedPriority,
-
-        confidence:
-          response.data.confidence,
-
-        weather:
-          translatedWeather
+        disease: translatedDisease,
+        solution: translatedSolution,
+        priority: translatedPriority,
+        confidence: response.data.confidence,
+        weather: translatedWeather
       });
       const newPrediction = {
         disease: translatedDisease,
