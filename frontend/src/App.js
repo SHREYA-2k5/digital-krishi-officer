@@ -321,23 +321,9 @@ function App() {
 
       const response =
         await axios.post(
-
-          "/predict",
-
-      setResult(response.data);
-
-      // TRANSLATE
-
-      const translatedDisease =
-        await translateText(
-
-          response.data.disease,
-
-          language
+          "https://digital-krishi-officer-2.onrender.com/predict",
+          formData
         );
-
-      const translatedSolution =
-        await translateText(
 
           response.data.solution,
 
@@ -672,7 +658,7 @@ localStorage.setItem(
   try {
 
     const response = await axios.get(
-      "/history"
+      "https://digital-krishi-officer-2.onrender.com/history"
     );
 
     setHistory(
@@ -695,7 +681,7 @@ const fetchDashboard = async () => {
   try {
 
     const response = await axios.get(
-      "/dashboard"
+      "https://digital-krishi-officer-2.onrender.com/dashboard"
     );
 
     setDashboard(
