@@ -21,8 +21,6 @@ function App() {
 
   const [preview, setPreview] = useState(null);
 
-  const [result, setResult] = useState(null);
-
   const [translatedResult, setTranslatedResult] =
     useState(null);
   
@@ -394,59 +392,6 @@ localStorage.setItem(
 
       setLoading(false);
     }
-  };
-
-  // SPEAK RESULT
-
-  const speakResult = () => {
-
-    if (!translatedResult) return;
-
-    const text = `
-
-      Disease ${translatedResult.disease}.
-
-      Solution ${translatedResult.solution}.
-
-      Priority ${translatedResult.priority}.
-
-      Weather Advisory ${translatedResult.weather}
-
-    `;
-
-    const speech =
-      new SpeechSynthesisUtterance(
-        text
-      );
-
-    speech.lang =
-      languageCodes[language];
-
-    const voices =
-      window.speechSynthesis.getVoices();
-
-    const selectedVoice =
-      voices.find(
-
-        (voice) =>
-
-          voice.lang ===
-          languageCodes[language]
-      );
-
-    if (selectedVoice) {
-
-      speech.voice =
-        selectedVoice;
-    }
-
-    speech.rate = 0.9;
-
-    speech.pitch = 1;
-
-    window.speechSynthesis.speak(
-      speech
-    );
   };
 
   const diseases = [
