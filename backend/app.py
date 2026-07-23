@@ -16,6 +16,11 @@ app = Flask(__name__, static_folder=frontend_build_path, static_url_path="")
 CORS(app)
 load_dotenv()
 
+if not os.path.isdir(frontend_build_path):
+    print(f"WARNING: Frontend build not found at {frontend_build_path}")
+else:
+    print(f"Serving frontend from {frontend_build_path}")
+
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 gemini_model = genai.GenerativeModel("gemini-2.5-flash-lite")
@@ -226,7 +231,12 @@ def serve_frontend(path):
     index_path = os.path.join(app.static_folder, 'index.html')
     if os.path.exists(index_path):
         return send_from_directory(app.static_folder, 'index.html')
-    return jsonify({"error": "Frontend build not found"}), 404
+    print(f"ERROR: index.html missing at {index_path}")
+    return jsonify({
+        "error": "Frontend build not found",
+        "static_folder": app.static_folder,
+        "index_path": index_path
+    }), 404
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
