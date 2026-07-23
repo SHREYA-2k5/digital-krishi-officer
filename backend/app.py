@@ -231,12 +231,12 @@ def serve_frontend(path):
     index_path = os.path.join(app.static_folder, 'index.html')
     if os.path.exists(index_path):
         return send_from_directory(app.static_folder, 'index.html')
-    print(f"ERROR: index.html missing at {index_path}")
+    print(f"WARNING: index.html missing at {index_path}")
     return jsonify({
-        "error": "Frontend build not found",
-        "static_folder": app.static_folder,
-        "index_path": index_path
-    }), 404
+        "status": "OK",
+        "message": "Backend API is running. Frontend static build not included in this deployment.",
+        "available_routes": ["/predict", "/history", "/dashboard", "/ask-ai"]
+    }), 200
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
