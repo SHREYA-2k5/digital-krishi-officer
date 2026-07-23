@@ -203,11 +203,9 @@ function App() {
 
     try {
 
-      const response = await fetch(
-
-`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=YOUR_API_KEY&units=metric`
-
-      );
+       const response = await fetch(
+`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
+);
 
       const data =
         await response.json();
