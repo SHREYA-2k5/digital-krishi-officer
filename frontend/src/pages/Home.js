@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 function Home({
@@ -25,6 +26,11 @@ function Home({
       <div className="hero">
         <h1>{t("home.heroTitle")}</h1>
         <p>{t("home.heroSubtitle")}</p>
+        <div className="heroActions">
+          <Link className="primaryButton" to="/timeline">
+            {t("home.viewTimelineButton")}
+          </Link>
+        </div>
       </div>
 
       <div className="card">

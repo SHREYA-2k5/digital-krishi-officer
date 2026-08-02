@@ -40,6 +40,10 @@ function Sidebar({ language, setLanguage }) {
           📚 {t("sidebar.library")}
         </Link>
 
+        <Link className="menuItem" to="/timeline">
+          🕒 {t("sidebar.timeline")}
+        </Link>
+
         <Link className="menuItem" to="/tips">
           🌱 {t("sidebar.tips")}
         </Link>

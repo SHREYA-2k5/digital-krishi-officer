@@ -6,7 +6,8 @@ const ml = {
     detect: "രോഗം കണ്ടെത്തുക",
     library: "രോഗ ലൈബ്രറി",
     tips: "വളങ്ങൾക്കുള്ള ടിപ്പുകൾ",
-    ask: "అффീസറോട് ചോദിക്കുക"
+    ask: "അഫീസരോട് ചോദിക്കുക",
+    timeline: "ఫలం టైమ్‌లైన్"
   },
   home: {
     heroTitle: "AI-ആംശമുള്ള വിള രോഗ കണക്ക്",
@@ -31,7 +32,8 @@ const ml = {
       healthy: "ആരോഗ്യകരം",
       diseased: "രോഗം ബാധിച്ചു",
       highPriority: "ഉയർന്ന മുൻതൂക്കം"
-    }
+    },
+    viewTimelineButton: "ഫലം ടൈംലൈൻ കാണുക"
   },
   detectDisease: {
     title: "📤 ഇലപടം അപ്‌ലോഡ് ചെയ്യുക",
@@ -104,8 +106,39 @@ const ml = {
     uploadImage: "ദയവായി ഒരു ചിത്രം അപ്‌ലോഡ് ചെയ്യുക",
     predictionFailed: "പ്രവചനം പരാജയപ്പെട്ടു",
     speechNotSupported: "വോയ്‌സ് ճանաչനം പിന്തുണയ്ക്കുന്നില്ല",
-    voiceFailed: "വോയ്‌സ് തിരിച്ചറിയൽ പരാജയപ്പെട്ടു"
-  }
+    voiceFailed: "വോയ്‌സ് തിരിച്ചറിയൽ പരാജയപ്പെട്ടു"  },
+  timeline: {
+    title: "🌾 ഫസൽ ആരോഗ്യ ടൈംലൈൻ",
+    subtitle: "സമയം പോലുള്ള സ്കാനുകളെ പിന്തുടരുക, ആത്മവിശ്വാസ ട്രെൻഡുകളുമായി ആരോഗ്യ പരിശോധന ചെയ്യുക.",
+    filters: {
+      allCrops: "എല്ലാ ഫസലുകളും"
+    },
+    selectPointTitle: "ദയവായി ഒരു ടൈംലൈൻ എൻട്രി തിരഞ്ഞെടുക്കുക",
+    selectPointSubtitle: "പൂർണ്ണ വിശദാംശങ്ങൾ കാണാൻ ചാർട്ട് അല്ലെങ്കിൽ എണ്ണം ക്ലിക്കുചെയ്യുക.",
+    detailsTitle: "പ്രവചന വിശദാംശങ്ങൾ",
+    cropLabel: "ഫസൽ",
+    diseaseLabel: "രോഗം",
+    confidenceLabel: "ആത്മവിശ്വാസം",
+    weatherCondition: "വായു നില:",
+    recommendationLabel: "AI ശിപാർശ",
+    weatherUnavailable: "വായു ലഭ്യമല്ല",
+    unknownCrop: "അറിയപ്പെടാത്ത ഫസൽ",
+    dateLabel: "തിയ്യതി",
+    dateUnavailable: "തിയ്യതി ലഭ്യമല്ല",
+    noRecommendation: "ഒന്നും ശിപാർശ ലഭ്യമല്ല.",
+    entries: "എൻട്രികൾ",
+    historyTitle: "പ്രവചന ടൈംലൈൻ",
+    noHistory: "പ്രവചന ചരിത്രം ലഭ്യമല്ല.",
+    healthy: "ആരോഗ്യമുള്ള",
+    diseased: "രോഗബാധിത",
+    stats: {
+      totalScans: "മൊത്തം സ്കാനുകൾ",
+      healthyScans: "ആരോഗ്യകരമായ സ്കാനുകൾ",
+      diseasedScans: "രോഗബാധിത സ്കാനുകൾ",
+      mostCommonDisease: "ഏറ്റവും സാധാരണമായ രോഗം",
+      unknownDisease: "അറിയപ്പെടാത്ത രോഗം",
+      none: "ഒന്നുമില്ല"
+    }  }
 };
 
 export default ml;

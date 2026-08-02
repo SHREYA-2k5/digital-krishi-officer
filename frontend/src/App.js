@@ -13,6 +13,7 @@ import DetectDisease from "./pages/DetectDisease";
 import DiseaseLibrary from "./pages/DiseaseLibrary";
 import FarmingTips from "./pages/FarmingTips";
 import AskOfficer from "./pages/AskOfficer";
+import CropTimeline from "./pages/CropTimeline";
 
 import "./App.css";
 
@@ -713,6 +714,7 @@ useEffect(() => {
               />
             }
           />
+          <Route path="/timeline" element={<CropTimeline history={history} />} />
           <Route path="*" element={<Home dashboard={dashboard} history={history} />} />
         </Routes>
       </div>

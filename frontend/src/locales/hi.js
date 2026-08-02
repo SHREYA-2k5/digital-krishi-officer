@@ -6,7 +6,8 @@ const hi = {
     detect: "रोग पहचानें",
     library: "रोग पुस्तकालय",
     tips: "खेती टिप्स",
-    ask: "अधिकारी से पूछें"
+    ask: "अधिकारी से पूछें",
+    timeline: "फसल समयरेखा"
   },
   home: {
     heroTitle: "AI आधारित फसल रोग पहचान",
@@ -31,7 +32,8 @@ const hi = {
       healthy: "स्वस्थ",
       diseased: "रोगग्रस्त",
       highPriority: "उच्च प्राथमिकता"
-    }
+    },
+    viewTimelineButton: "फसल समयरेखा देखें"
   },
   detectDisease: {
     title: "📤 पत्ती छवि अपलोड करें",
@@ -105,6 +107,39 @@ const hi = {
     predictionFailed: "पूर्वानुमान विफल",
     speechNotSupported: "वॉइस रिकग्निशन समर्थित नहीं है",
     voiceFailed: "वॉइस रिकग्निशन विफल"
+  },
+  timeline: {
+    title: "🌾 फसल स्वास्थ्य समयरेखा",
+    subtitle: "समय के साथ स्कैन पर नज़र रखें और आत्मविश्वास रुझानों के साथ स्वास्थ्य की जाँच करें।",
+    filters: {
+      allCrops: "सभी फसलें"
+    },
+    selectPointTitle: "कृपया एक समयरेखा प्रविष्टि चुनें",
+    selectPointSubtitle: "पूरा विवरण देखने के लिए चार्ट या पंक्ति पर क्लिक करें।",
+    detailsTitle: "पूर्वानुमान विवरण",
+    cropLabel: "फसल",
+    diseaseLabel: "रोग",
+    confidenceLabel: "आत्मविश्वास",
+    weatherCondition: "मौसम की स्थिति:",
+    recommendationLabel: "AI सिफारिश",
+    weatherUnavailable: "मौसम उपलब्ध नहीं",
+    unknownCrop: "अज्ञात फसल",
+    dateLabel: "तारीख",
+    dateUnavailable: "तारीख उपलब्ध नहीं",
+    noRecommendation: "कोई सिफारिश उपलब्ध नहीं।",
+    entries: "एंट्री",
+    historyTitle: "पूर्वानुमान समयरेखा",
+    noHistory: "कोई पूर्वानुमान इतिहास उपलब्ध नहीं।",
+    healthy: "स्वस्थ",
+    diseased: "रोगग्रस्त",
+    stats: {
+      totalScans: "कुल स्कैन",
+      healthyScans: "स्वस्थ स्कैन",
+      diseasedScans: "रोगग्रस्त स्कैन",
+      mostCommonDisease: "सबसे सामान्य रोग",
+      unknownDisease: "अज्ञात रोग",
+      none: "कोई नहीं"
+    }
   }
 };
 

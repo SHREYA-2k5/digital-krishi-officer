@@ -6,7 +6,8 @@ const en = {
     detect: "Detect Disease",
     library: "Disease Library",
     tips: "Farming Tips",
-    ask: "Ask Officer"
+    ask: "Ask Officer",
+    timeline: "Crop Timeline"
   },
   home: {
     heroTitle: "AI Powered Crop Disease Detection",
@@ -31,7 +32,8 @@ const en = {
       healthy: "Healthy",
       diseased: "Diseased",
       highPriority: "High Priority"
-    }
+    },
+    viewTimelineButton: "View Crop Timeline"
   },
   detectDisease: {
     title: "📤 Upload Leaf Image",
@@ -105,6 +107,39 @@ const en = {
     predictionFailed: "Prediction failed",
     speechNotSupported: "Speech Recognition not supported",
     voiceFailed: "Voice recognition failed"
+  },
+  timeline: {
+    title: "🌾 Crop Health Timeline",
+    subtitle: "Track scans over time and inspect crop health with confidence trends.",
+    filters: {
+      allCrops: "All Crops"
+    },
+    selectPointTitle: "Select a timeline entry",
+    selectPointSubtitle: "Click any point on the chart or row to view full details.",
+    detailsTitle: "Prediction Details",
+    cropLabel: "Crop",
+    diseaseLabel: "Disease",
+    confidenceLabel: "Confidence",
+    weatherCondition: "Weather Condition:",
+    recommendationLabel: "AI Recommendation",
+    weatherUnavailable: "Weather not available",
+    unknownCrop: "Unknown Crop",
+    dateLabel: "Date",
+    dateUnavailable: "Date unavailable",
+    noRecommendation: "No recommendation available.",
+    entries: "entries",
+    historyTitle: "Prediction Timeline",
+    noHistory: "No prediction history available.",
+    healthy: "Healthy",
+    diseased: "Diseased",
+    stats: {
+      totalScans: "Total Scans",
+      healthyScans: "Healthy Scans",
+      diseasedScans: "Diseased Scans",
+      mostCommonDisease: "Most Frequent Disease",
+      unknownDisease: "Unknown Disease",
+      none: "None"
+    }
   }
 };
 
