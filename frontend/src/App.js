@@ -389,47 +389,25 @@ localStorage.setItem(
   };
 
   const diseases = [
-
-  {
-    name: "Early Blight",
-
-    symptoms:
-      "Yellow spots and concentric rings on leaves",
-
-    cause:
-      "Fungal infection",
-
-    treatment:
-      "Apply fungicide and remove infected leaves"
-  },
-
-  {
-    name: "Late Blight",
-
-    symptoms:
-      "Brown patches and leaf decay",
-
-    cause:
-      "High humidity and fungal spread",
-
-    treatment:
-      "Use copper fungicide and avoid overwatering"
-  },
-
-  {
-    name: "Leaf Mold",
-
-    symptoms:
-      "Yellow patches with mold underneath",
-
-    cause:
-      "Excess moisture",
-
-    treatment:
-      "Improve ventilation and apply fungicide"
-  }
-
-];
+    {
+      nameKey: "diseaseLibrary.earlyBlight.name",
+      symptomsKey: "diseaseLibrary.earlyBlight.symptoms",
+      causeKey: "diseaseLibrary.earlyBlight.cause",
+      treatmentKey: "diseaseLibrary.earlyBlight.treatment"
+    },
+    {
+      nameKey: "diseaseLibrary.lateBlight.name",
+      symptomsKey: "diseaseLibrary.lateBlight.symptoms",
+      causeKey: "diseaseLibrary.lateBlight.cause",
+      treatmentKey: "diseaseLibrary.lateBlight.treatment"
+    },
+    {
+      nameKey: "diseaseLibrary.leafMold.name",
+      symptomsKey: "diseaseLibrary.leafMold.symptoms",
+      causeKey: "diseaseLibrary.leafMold.cause",
+      treatmentKey: "diseaseLibrary.leafMold.treatment"
+    }
+  ];
 
   // ANALYZE FARMER PROBLEM
 

@@ -9,18 +9,18 @@ function DiseaseLibrary({ diseases }) {
 
       {diseases.map((disease, index) => (
         <div key={index} className="libraryCard">
-          <h3>🌿 {disease.name}</h3>
+          <h3>🌿 {t(disease.nameKey)}</h3>
 
           <p>
-            <strong>{t("diseaseLibrary.symptoms")}</strong> {disease.symptoms}
+            <strong>{t("diseaseLibrary.symptoms")}</strong> {t(disease.symptomsKey)}
           </p>
 
           <p>
-            <strong>{t("diseaseLibrary.cause")}</strong> {disease.cause}
+            <strong>{t("diseaseLibrary.cause")}</strong> {t(disease.causeKey)}
           </p>
 
           <p>
-            <strong>{t("diseaseLibrary.treatment")}</strong> {disease.treatment}
+            <strong>{t("diseaseLibrary.treatment")}</strong> {t(disease.treatmentKey)}
           </p>
         </div>
       ))}

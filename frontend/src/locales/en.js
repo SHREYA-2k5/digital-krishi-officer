@@ -53,7 +53,25 @@ const en = {
     title: "📚 Disease Library",
     symptoms: "Symptoms:",
     cause: "Cause:",
-    treatment: "Treatment:"
+    treatment: "Treatment:",
+    earlyBlight: {
+      name: "Early Blight",
+      symptoms: "Yellow spots and concentric rings on leaves",
+      cause: "Fungal infection",
+      treatment: "Apply fungicide and remove infected leaves"
+    },
+    lateBlight: {
+      name: "Late Blight",
+      symptoms: "Brown patches and leaf decay",
+      cause: "High humidity and fungal spread",
+      treatment: "Use copper fungicide and avoid overwatering"
+    },
+    leafMold: {
+      name: "Leaf Mold",
+      symptoms: "Yellow patches with mold underneath",
+      cause: "Excess moisture",
+      treatment: "Improve ventilation and apply fungicide"
+    }
   },
   farmingTips: {
     title: "🌱 Farming Tips",
