@@ -5,4 +5,5 @@ services:
     region: oregon
     plan: free
     dockerfilePath: Dockerfile
+    branch: main
     healthCheckPath: /
