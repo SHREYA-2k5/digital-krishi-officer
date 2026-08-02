@@ -11,7 +11,17 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-frontend_build_path = os.path.join(BASE_DIR, "frontend", "build")
+CANDIDATE_BACKEND_BUILD = os.path.join(BASE_DIR, "frontend", "build")
+CANDIDATE_REPO_BUILD = os.path.join(BASE_DIR, "..", "frontend", "build")
+
+# Prefer backend/frontend/build if present, otherwise fall back to ../frontend/build
+if os.path.isdir(CANDIDATE_BACKEND_BUILD):
+    frontend_build_path = CANDIDATE_BACKEND_BUILD
+elif os.path.isdir(CANDIDATE_REPO_BUILD):
+    frontend_build_path = os.path.abspath(CANDIDATE_REPO_BUILD)
+else:
+    frontend_build_path = CANDIDATE_BACKEND_BUILD
+
 app = Flask(__name__, static_folder=frontend_build_path, static_url_path="")
 CORS(app)
 load_dotenv()
