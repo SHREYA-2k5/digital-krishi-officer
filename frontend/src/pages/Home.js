@@ -1,4 +1,5 @@
- import React from "react";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 function Home({
   dashboard,
@@ -10,65 +11,53 @@ function Home({
   setHistoryFilter,
   historyTrend
 }) {
+  const { t } = useTranslation();
+
+  const filterOptions = [
+    { value: "All", label: t("home.filters.all") },
+    { value: "Healthy", label: t("home.filters.healthy") },
+    { value: "Diseased", label: t("home.filters.diseased") },
+    { value: "High Priority", label: t("home.filters.highPriority") }
+  ];
 
   return (
-
     <div>
-
-      {/* HERO */}
-
       <div className="hero">
-
-        <h1>
-          AI Powered Crop Disease Detection
-        </h1>
-
-        <p>
-          Upload crop leaf images and get instant AI-powered disease prediction with multilingual farming solutions.
-        </p>
-
+        <h1>{t("home.heroTitle")}</h1>
+        <p>{t("home.heroSubtitle")}</p>
       </div>
 
-      {/* DASHBOARD */}
-
       <div className="card">
-
-        <h2>📊 Analytics Dashboard</h2>
+        <h2>{t("home.dashboardTitle")}</h2>
 
         <div className="dashboardGrid">
-
           <div className="dashboardCard">
-            <h3>Total Predictions</h3>
+            <h3>{t("home.stats.totalPredictions")}</h3>
             <h1>{dashboard?.total_predictions || 0}</h1>
           </div>
 
           <div className="dashboardCard">
-            <h3>Healthy Crops</h3>
+            <h3>{t("home.stats.healthyCrops")}</h3>
             <h1>{dashboard?.healthy_count || 0}</h1>
           </div>
 
           <div className="dashboardCard">
-            <h3>Diseased Crops</h3>
+            <h3>{t("home.stats.diseasedCrops")}</h3>
             <h1>{dashboard?.diseased_count || 0}</h1>
           </div>
 
           <div className="dashboardCard">
-            <h3>Most Common Disease</h3>
-            <h1>{dashboard?.most_common_disease || "None"}</h1>
+            <h3>{t("home.stats.mostCommonDisease")}</h3>
+            <h1>{dashboard?.most_common_disease || t("home.stats.none")}</h1>
           </div>
-
         </div>
-
       </div>
 
-      {/* TREND CHART */}
-
       <div className="card">
-
-        <h2>📈 Prediction Trends</h2>
+        <h2>{t("home.trendsTitle")}</h2>
 
         {historyTrend?.length === 0 ? (
-          <p>No trend data yet</p>
+          <p>{t("home.noTrendData")}</p>
         ) : (
           <div className="trendChart">
             {historyTrend.map((item) => (
@@ -85,52 +74,45 @@ function Home({
             ))}
           </div>
         )}
-
       </div>
 
-      {/* HISTORY */}
-
       <div className="card">
-
-        <h2>📜 Prediction History</h2>
+        <h2>{t("home.historyTitle")}</h2>
 
         <div className="historyControls">
           <input
             className="searchInput"
             type="text"
-            placeholder="Search Disease..."
+            placeholder={t("home.searchPlaceholder")}
             value={historyQuery}
             onChange={(e) => setHistoryQuery(e.target.value)}
           />
           <div className="filterTabs">
-            {['All', 'Healthy', 'Diseased', 'High Priority'].map((filter) => (
+            {filterOptions.map((filter) => (
               <button
-                key={filter}
+                key={filter.value}
                 className={
-                  historyFilter === filter
-                    ? 'filterButton active'
-                    : 'filterButton'
+                  historyFilter === filter.value
+                    ? "filterButton active"
+                    : "filterButton"
                 }
-                onClick={() => setHistoryFilter(filter)}
+                onClick={() => setHistoryFilter(filter.value)}
                 type="button"
               >
-                {filter}
+                {filter.label}
               </button>
             ))}
           </div>
         </div>
 
         {filteredHistory?.length === 0 ? (
-          <p>No matching history</p>
+          <p>{t("home.noHistory")}</p>
         ) : (
           filteredHistory.map((item, index) => (
-            <div
-              key={index}
-              className="libraryCard"
-            >
+            <div key={index} className="libraryCard">
               <h3>{item.disease}</h3>
-              <p>Confidence: {item.confidence}%</p>
-              <p>Priority: {item.priority}</p>
+              <p>{t("home.confidence")}: {item.confidence}%</p>
+              <p>{t("home.priority")}: {item.priority}</p>
               {item.date && (
                 <p className="timestamp">
                   {new Date(item.date).toLocaleDateString()} • {new Date(item.date).toLocaleTimeString()}
@@ -139,9 +121,7 @@ function Home({
             </div>
           ))
         )}
-
       </div>
-
     </div>
   );
 }

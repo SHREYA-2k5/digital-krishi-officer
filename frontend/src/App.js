@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import jsPDF from "jspdf";
+import { useTranslation } from "react-i18next";
 
 import { askKrishiOfficer } from "./api";
 import axios from "axios";
@@ -16,6 +17,7 @@ import AskOfficer from "./pages/AskOfficer";
 import "./App.css";
 
 function App() {
+  const { t } = useTranslation();
 
   const [image, setImage] = useState(null);
 
@@ -85,15 +87,15 @@ function App() {
 
     const doc = new jsPDF({ unit: "pt", format: "a4" });
     doc.setFontSize(20);
-    doc.text("Prediction Report", 40, 60);
+    doc.text(t("appMessages.predictionReport"), 40, 60);
 
     doc.setFontSize(12);
-    doc.text(`Crop: ${selectedCrop}`, 40, 100);
-    doc.text(`Disease: ${translatedResult.disease}`, 40, 120);
-    doc.text(`Confidence: ${translatedResult.confidence}%`, 40, 140);
-    doc.text(`Priority: ${translatedResult.priority}`, 40, 160);
-    doc.text(`Weather: ${translatedResult.weather}`, 40, 180);
-    doc.text(`Date: ${new Date().toLocaleString()}`, 40, 200);
+    doc.text(`${t("appMessages.cropLabel")}: ${selectedCrop}`, 40, 100);
+    doc.text(`${t("appMessages.diseaseLabel")}: ${translatedResult.disease}`, 40, 120);
+    doc.text(`${t("appMessages.confidenceLabel")}: ${translatedResult.confidence}%`, 40, 140);
+    doc.text(`${t("appMessages.priorityLabel")}: ${translatedResult.priority}`, 40, 160);
+    doc.text(`${t("appMessages.weatherLabel")}: ${translatedResult.weather}`, 40, 180);
+    doc.text(`${t("appMessages.dateLabel")}: ${new Date().toLocaleString()}`, 40, 200);
 
     if (image) {
       try {
@@ -187,7 +189,7 @@ function App() {
             console.log(error);
 
             alert(
-              "Location access denied"
+              t("appMessages.locationDenied")
             );
           }
         );
@@ -213,7 +215,7 @@ function App() {
       if (!data.main) {
 
         setWeatherAlert(
-          "Weather unavailable"
+          t("appMessages.weatherUnavailable")
         );
 
         return;
@@ -229,7 +231,7 @@ function App() {
 
         setWeatherAlert(
 
-          "High humidity detected. Risk of fungal diseases."
+          t("appMessages.highHumidity")
 
         );
       }
@@ -238,7 +240,7 @@ function App() {
 
         setWeatherAlert(
 
-          "High temperature detected. Ensure proper irrigation."
+          t("appMessages.highTemperature")
 
         );
       }
@@ -247,7 +249,7 @@ function App() {
 
         setWeatherAlert(
 
-          "Weather conditions are stable."
+          t("appMessages.stableWeather")
 
         );
       }
@@ -257,7 +259,7 @@ function App() {
       console.log(error);
 
       setWeatherAlert(
-        "Weather unavailable"
+        t("appMessages.weatherUnavailable")
       );
     }
   };
@@ -282,7 +284,7 @@ function App() {
     if (!image) {
 
       alert(
-        "Please upload an image"
+        t("appMessages.uploadImage")
       );
 
       return;
@@ -339,18 +341,12 @@ function App() {
           language
         );
 
-      const translatedWeather =
-        await translateText(
-          weatherAlert,
-          language
-        );
-
       setTranslatedResult({
         disease: translatedDisease,
         solution: translatedSolution,
         priority: translatedPriority,
         confidence: response.data.confidence,
-        weather: translatedWeather
+        weather: weatherAlert
       });
       const newPrediction = {
         disease: translatedDisease,
@@ -383,7 +379,7 @@ localStorage.setItem(
       console.log(error);
 
       alert(
-        "Prediction failed"
+        t("appMessages.predictionFailed")
       );
 
     } finally {
@@ -540,7 +536,7 @@ localStorage.setItem(
 
       alert(
 
-        "Speech Recognition not supported"
+        t("appMessages.speechNotSupported")
 
       );
 
@@ -585,7 +581,7 @@ localStorage.setItem(
       console.log(event.error);
 
       alert(
-        "Voice recognition failed"
+        t("appMessages.voiceFailed")
       );
     };
   };

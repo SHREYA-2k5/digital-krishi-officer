@@ -1,54 +1,29 @@
- function DiseaseLibrary({ diseases }) {
+import { useTranslation } from "react-i18next";
+
+function DiseaseLibrary({ diseases }) {
+  const { t } = useTranslation();
+
   return (
     <div className="card">
+      <h2>{t("diseaseLibrary.title")}</h2>
 
-      <h2>
-        📚 Disease Library
-      </h2>
+      {diseases.map((disease, index) => (
+        <div key={index} className="libraryCard">
+          <h3>🌿 {disease.name}</h3>
 
-      {
+          <p>
+            <strong>{t("diseaseLibrary.symptoms")}</strong> {disease.symptoms}
+          </p>
 
-        diseases.map((disease, index) => (
+          <p>
+            <strong>{t("diseaseLibrary.cause")}</strong> {disease.cause}
+          </p>
 
-          <div
-            key={index}
-            className="libraryCard"
-          >
-
-            <h3>
-              🌿 {disease.name}
-            </h3>
-
-            <p>
-
-              <strong>Symptoms:</strong>
-
-              {disease.symptoms}
-
-            </p>
-
-            <p>
-
-              <strong>Cause:</strong>
-
-              {disease.cause}
-
-            </p>
-
-            <p>
-
-              <strong>Treatment:</strong>
-
-              {disease.treatment}
-
-            </p>
-
-          </div>
-
-        ))
-
-      }
-
+          <p>
+            <strong>{t("diseaseLibrary.treatment")}</strong> {disease.treatment}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }

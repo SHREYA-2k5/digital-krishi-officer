@@ -1,67 +1,32 @@
- import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown";
+import { useTranslation } from "react-i18next";
 
-function AskOfficer({
-  question,
-  setQuestion,
-  handleAsk,
-  answer
-}) {
+function AskOfficer({ question, setQuestion, handleAsk, answer }) {
+  const { t } = useTranslation();
+
   return (
-
     <div className="card">
-
-      <h2>
-        👨‍🌾 Ask Krishi Officer
-      </h2>
+      <h2>{t("askOfficer.title")}</h2>
 
       <textarea
         rows="5"
         value={question}
-        onChange={(e) =>
-          setQuestion(e.target.value)
-        }
+        onChange={(e) => setQuestion(e.target.value)}
         className="questionBox"
-        placeholder={`Example:
-
-• My tomato leaves are turning yellow
-
-• Which fertilizer should I use for paddy?
-
-• Banana leaves have black spots`}
+        placeholder={t("askOfficer.placeholder")}
       />
 
       <br />
 
-      <button onClick={handleAsk}>
-        Ask
-      </button>
+      <button onClick={handleAsk}>{t("askOfficer.button")}</button>
 
-      {
-
-        answer && (
-
-          <div className="answerCard">
-
-            <div className="answerHeader">
-
-              🤖 Digital Krishi Officer
-
-            </div>
-
-            <ReactMarkdown>
-
-              {answer}
-
-            </ReactMarkdown>
-
-          </div>
-
-        )
-
-      }
-
+      {answer && (
+        <div className="answerCard">
+          <div className="answerHeader">{t("askOfficer.assistantTitle")}</div>
+          <ReactMarkdown>{answer}</ReactMarkdown>
+        </div>
+      )}
     </div>
-
   );
 }
 
