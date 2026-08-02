@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: digital-krishi-officer
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    pythonVersion: 3.11.11
+    healthCheckPath: /
